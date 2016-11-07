@@ -8,6 +8,8 @@ from time import sleep
 # Here are the email package modules we'll need
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
+from email.MIMEBase import MIMEBase
+from email import encoders
 
 COMMASPACE = ', '
 
@@ -30,7 +32,7 @@ camera.capture('/home/pi/Fotos/image.jpg')
 camera.stop_preview()
 
 filename = "image.jpg"
-attachment = open("/home/pi/Fotos", "rb")
+attachment = open("/home/pi/Fotos/image.jpg", "rb")
 
 part = MIMEBase('application', 'octet-stream')
 part.set_payload((attachment).read())
